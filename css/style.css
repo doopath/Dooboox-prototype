@@ -66,6 +66,7 @@ main {
   position: relative; }
 
 .title {
+  display: block;
   font-size: 40px;
   margin-bottom: 15px; }
 
@@ -76,8 +77,13 @@ main {
   width: 100%;
   height: 4px;
   background: #282828;
-  margin: 55px auto;
+  margin: 60px auto;
   border-radius: 10px; }
+
+.hidden-separator {
+  width: 100%;
+  height: 4px;
+  margin: 60px auto; }
 
 .button {
   width: 50px;
@@ -96,7 +102,9 @@ main {
   display: block;
   font-size: 40px;
   transform: rotate(90deg);
-  margin-left: -5px; }
+  margin-left: -5px;
+  animation-duration: 1s;
+  animation-timing-function: ease; }
 
 .portraits__block {
   position: relative;
@@ -158,8 +166,9 @@ main {
   opacity: 100%;
   transform: translate(0px, 0px); }
 
-.button_active {
-  transform: rotate(180deg); }
+.arrow__active {
+  transform: rotate(-90deg);
+  margin-left: 5px; }
 
 .code__box__item {
   height: 50px;
@@ -186,5 +195,48 @@ main {
 
 .code-comment {
   color: #747474; }
+
+.code-result {
+  color: #4A76A8; }
+
+.non-margin {
+  margin-left: -50px; }
+
+.gears__block {
+  height: 200px;
+  width: 100%;
+  grid-template: repeat(2, 1fr)/100px 200px 100px 200px 100px 200px;
+  display: none;
+  margin-bottom: 60px; }
+
+.gears__block_active {
+  display: grid; }
+
+.gear__item {
+  width: 200px;
+  height: auto;
+  display: block;
+  animation-name: gear;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
+
+.gear__item_small {
+  width: 100px;
+  height: auto;
+  animation-name: gear;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; }
+
+.h-title {
+  display: none; }
+
+/*Keyframes*/
+@keyframes gear {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 /*Animations for all*/

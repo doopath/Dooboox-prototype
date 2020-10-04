@@ -15,6 +15,9 @@
 a {
   text-decoration: none; }
 
+body {
+  min-width: 520px; }
+
 .content {
   width: 100%;
   height: 100%; }
@@ -239,4 +242,131 @@ main {
   100% {
     transform: rotate(360deg); } }
 
-/*Animations for all*/
+/*Media questions*/
+@media (max-width: 1440px) {
+  .code__box {
+    width: 100%; }
+  .code__box_result {
+    margin-bottom: 100px; } }
+
+@media (max-width: 1181px) {
+  .logotype {
+    font-size: 30px; }
+  .header__title {
+    font-size: 20px; }
+  .title {
+    font-size: 30px; }
+  .text {
+    font-size: 24px; }
+  .code__box__item {
+    height: 30px; }
+  .code,
+  .string__number {
+    font-size: 15px;
+    line-height: 33px; }
+  .code {
+    margin-top: -30px; }
+  .gears__block {
+    height: 100px;
+    grid-template: repeat(2, 1fr)/50px 100px 50px 100px 50px 100px; }
+  .gear__item {
+    width: 100px; }
+  .gear__item_small {
+    width: 50px; }
+  .portraits__block {
+    height: 300px; }
+  .portrait {
+    height: 300px; }
+  .portrait__image {
+    height: 270px; }
+  .border__table {
+    height: 30px; }
+  .portrait__lable {
+    font-size: 15px;
+    line-height: 30px; } }
+
+@media (max-width: 991px) {
+  header {
+    height: 60px; }
+  .logotype {
+    font-size: 24px;
+    line-height: 70px; }
+  .header__title {
+    font-size: 18px;
+    line-height: 68px; }
+  .title {
+    font-size: 25px; }
+  .text {
+    font-size: 20px; }
+  .hidden-separator {
+    margin: 30px auto; }
+  .code {
+    font-size: 12px; } }
+
+@media (max-width: 769px) {
+  .title {
+    font-size: 20px; }
+  .text {
+    font-size: 15px; }
+  .code__box {
+    padding: 15px; }
+  .code {
+    font-size: 10px;
+    margin-left: -20px; }
+  .non-margin {
+    margin-left: -50px; }
+  .string__number {
+    font-size: 12px;
+    width: 20px; }
+  .gears__block {
+    height: 60px;
+    grid-template: repeat(2, 1fr)/30px 60px 30px 60px 30px 60px;
+    margin-bottom: 30px; }
+  .gear__item {
+    width: 60px; }
+  .gear__item_small {
+    width: 30px; }
+  .hidden-separator {
+    margin: 20px auto; } }
+
+@media (max-width: 680px) {
+  main {
+    padding: 30px 0; } }
+
+@media (max-width: 571px) {
+  header {
+    height: 50px; }
+  .logotype {
+    font-size: 20px;
+    line-height: 55px; }
+  .header__title {
+    font-size: 14px;
+    line-height: 55px; }
+  .main__content {
+    padding: 30px 30px; }
+  .title {
+    font-size: 18px; }
+  .text {
+    font-size: 12px; }
+  .code__box {
+    padding: 10px; }
+  .code__box__item {
+    height: 20px; }
+  .code {
+    font-size: 10px;
+    margin-top: -27px; }
+  .string__number {
+    font-size: 10px;
+    line-height: 20px; }
+  .portraits__block {
+    height: 200px;
+    margin-top: 40px; }
+  .portrait {
+    height: 200px; }
+  .portrait__image {
+    height: 180px; }
+  .border__table {
+    height: 20px; }
+  .portrait__lable {
+    font-size: 10px;
+    line-height: 20px; } }

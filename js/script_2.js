@@ -25,12 +25,6 @@ $(document).ready(function() {
 
   function showExample(buttonName, arrowName, codeBoxName, gearsName, resultName, title1, title2) {
     $(buttonName).on('click', function(event){
-      if($(buttonName).attr('title') == 'Показать пример') {
-        $(buttonName).attr('title', 'Скрыть пример');
-      } else {
-        $(buttonName).attr('title', 'Показать пример');
-      }
-
       $(codeBoxName).toggleClass('code__box_active wow fadeInLeft');
       $(arrowName).toggleClass('arrow__active');
       $(gearsName).toggleClass('gears__block_active');
@@ -40,7 +34,7 @@ $(document).ready(function() {
     });
   }
 
-  function setStringNumber(parent, preparent, className) {
+  function stringNumber(parent, preparent, className) {
     var attr = parent + ' ' + preparent + ' ' + className;
     var items = $(attr);
 
@@ -59,8 +53,8 @@ $(document).ready(function() {
   showExample(contentButton_1, arrow_1, codeBox_1, gearsBlock, codeBox_2, hTitle_1, hTitle_2); //show the code-box, titles and gears; reverse the arrow and toggle item's position
   addDelay(delay); //make a delay of the animation
 
-  setStringNumber(codeBox_1, codeBoxItem, stringNumber); //set a number of a string of the code-box
-  setStringNumber(codeBox_2, codeBoxItem, stringNumber);
+  stringNumber(codeBox_1, codeBoxItem, '.string__number'); //set a number of a string of the code-box
+  stringNumber(codeBox_2, codeBoxItem, '.string__number');
 
   linkReplace(themesId, fakeLink); //make a redirect when a link was clicked
   linkReplace(projectInfoId, fakeLink);

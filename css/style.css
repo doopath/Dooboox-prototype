@@ -106,8 +106,8 @@ main {
   font-size: 40px;
   transform: rotate(90deg);
   margin-left: -5px;
-  animation-duration: 1s;
-  animation-timing-function: ease; }
+  animation-timing-function: ease;
+  transition: 1s ease; }
 
 .portraits__block {
   position: relative;
@@ -235,6 +235,44 @@ main {
 .h-title {
   display: none; }
 
+.menu {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  height: 50px;
+  border-radius: 5px;
+  background: #fff; }
+
+.menu__list {
+  list-style-type: none;
+  display: grid;
+  grid-template: 1fr/repeat(4, 1fr); }
+
+.menu__item {
+  font-size: 25px;
+  display: block;
+  height: 50px;
+  width: 100%;
+  place-self: center;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff;
+  transition: 0.3s linear; }
+
+.menu__item:hover {
+  background-color: #000;
+  color: #fff; }
+
+.extreme-left {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; }
+
+.extreme-right {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
 /*Keyframes*/
 @keyframes gear {
   0% {
@@ -243,6 +281,10 @@ main {
     transform: rotate(360deg); } }
 
 /*Media questions*/
+@media (max-width: 1680px) {
+  .menu__item {
+    font-size: 20px; } }
+
 @media (max-width: 1440px) {
   .code__box {
     width: 100%; }
@@ -250,6 +292,8 @@ main {
     margin-bottom: 100px; } }
 
 @media (max-width: 1181px) {
+  .menu__item {
+    font-size: 15px; }
   .logotype {
     font-size: 30px; }
   .header__title {
@@ -303,6 +347,17 @@ main {
   .code {
     font-size: 12px; } }
 
+@media (max-width: 870px) {
+  .menu {
+    height: 35px;
+    margin-bottom: 20px; }
+  .menu__list {
+    height: 35px; }
+  .menu__item {
+    height: 35px;
+    line-height: 35px;
+    font-size: 12px; } }
+
 @media (max-width: 769px) {
   .title {
     font-size: 20px; }
@@ -331,7 +386,9 @@ main {
 
 @media (max-width: 680px) {
   main {
-    padding: 30px 0; } }
+    padding: 30px 0; }
+  .menu__item {
+    border-radius: 0; } }
 
 @media (max-width: 571px) {
   header {

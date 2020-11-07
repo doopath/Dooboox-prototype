@@ -30,27 +30,27 @@
 
         <blockquote class="tp-quote">Lorem Ipsum dolor sit amet.</blockquote>
 
-        <div class="tp-example">
-          <div class="button" id="add_content_button_2" title="Показать пример"> <span class=" fas fa-arrow-circle-down arrow" id="arrow_1"></span> </div>
-          <div class="tp-example__box">
+        <div class="tp-example" id="code-box_2">
+          <div class="button" id="toggle-button_1" title="Показать пример"> <span class=" fas fa-arrow-circle-down arrow" id="arrow_1"></span> </div>
+          <div class="tp-example__box" style="display: none;">
             <h3 class="tp-subtitle">Another exapmle:</h3>
-            <div class="code__box" id="code__box_3">
-              <div class="code__box__item"><span class="string__number"></span>
+            <div class="code-box">
+              <div class="code-box__item"><span class="string__number"></span>
                 <p class="code code-comment">//Example</p>
               </div>
-              <div class="code__box__item"><span class="string__number"></span>
+              <div class="code-box__item"><span class="string__number"></span>
                 <p class="code code-comment">//Javascript</p>
               </div>
-              <div class="code__box__item"><span class="string__number"></span>
+              <div class="code-box__item"><span class="string__number"></span>
                 <p class="code code-js">function helloWorld(authorName, userName) {</p>
               </div>
-              <div class="code__box__item"><span class="string__number"></span>
+              <div class="code-box__item"><span class="string__number"></span>
                 <p class="code"> console.log('hello world from ' + authorName + to userName + '!');</p>
               </div>
-              <div class="code__box__item"><span class="string__number"></span>
+              <div class="code-box__item"><span class="string__number"></span>
                 <p class="code">}</p>
               </div>
-              <div class="code__box__item"><span class="string__number"></span>
+              <div class="code-box__item"><span class="string__number"></span>
                 <p class="code">helloWorld('doopath', 'web-user');</p>
               </div>
             </div>
@@ -76,9 +76,9 @@
                   class="gear__item"></picture>
             </div>
 
-            <h2 class="title h-title" id="h-title_2">Результат</h2>
-            <div class="code__box code__box_result" id="code__box_2">
-              <div class="code__box__item"><span class="string__number"></span>
+            <h3 class="tp-subtitle">Another result:</h3>
+            <div class="code-box code-box_result">
+              <div class="code-box__item res-item"><span class="string__number"></span>
                 <p class="code code-result"> <span class="code non-margin">&#62; </span>hello world from doopath to
                   web-user!</p>
               </div>
@@ -102,5 +102,6 @@
     </main>
   </div>
   @@include('./_scripts.html')
+  <script src="./js/toggle-examples.js"></script>
 </body>
 </html>

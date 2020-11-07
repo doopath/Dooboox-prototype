@@ -428,61 +428,6 @@ main {
   text-decoration: underline;
   color: #FF5722; }
 
-.tp-title {
-  font-size: 25px;
-  margin-bottom: 10px; }
-
-.tp-link {
-  display: inline-block;
-  margin-bottom: 20px;
-  font-size: 15px;
-  margin-right: 15px; }
-
-.tp-link::before {
-  margin-right: 5px; }
-
-.tp-subtitle {
-  margin: 20px 0; }
-
-.tp-image__box {
-  width: 100%;
-  position: relative;
-  margin-bottom: 40px;
-  text-align: center; }
-
-.tp-image {
-  width: 100%;
-  margin-bottom: 2px; }
-
-.tp-sublink {
-  font-size: 15px;
-  cursor: pointer;
-  margin-left: 15px;
-  color: #efcea9; }
-
-.tp-text {
-  display: block;
-  font-size: 18px;
-  margin: 20px 0;
-  width: 100%; }
-
-.tp-quote {
-  font-size: 15px;
-  display: inline-block;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  border: 2px solid #efcea9;
-  border-radius: 5px;
-  color: #efcea9;
-  margin: 15px 0 15px 20px; }
-
-.tp-quote::before {
-  content: open-quote; }
-
-.tp-quote::after {
-  content: close-quote; }
-
 /*Media questions*/
 @media (max-width: 1680px) {
   .menu__item {

@@ -25,7 +25,7 @@
 .tp-link::before {
   margin-right: 5px; }
 
-.tp-subtitle {
+.tp-subtitle, tp-example-subtitle {
   margin: 20px 0; }
 
 .tp-image__box {
@@ -79,7 +79,7 @@
 @media (max-width: 760px) {
   .tp-title {
     font-size: 18px; }
-  .tp-subtitle {
+  .tp-subtitle, tp-example-subtitle {
     font-size: 16px; }
   .tp-text {
     font-size: 14px; }
@@ -89,7 +89,7 @@
 @media (max-width: 440px) {
   .tp-title {
     font-size: 15px; }
-  .tp-subtitle {
+  .tp-subtitle, tp-example-subtitle {
     font-size: 14px; }
   .tp-text {
     font-size: 13px; }

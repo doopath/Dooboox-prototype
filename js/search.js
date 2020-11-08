@@ -66,7 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
         this._ge.qsa(elements).forEach( e => {
           this._show(e)
           e.innerText = this._markerRemove(e.innerText) // Remove those ones
-       })
+        })
+
+        this._ge.qsa('.separator').forEach( e => { // Reset separator styles
+          e.style.marginTop = '60px'
+        })
       }
     }
 

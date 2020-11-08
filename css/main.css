@@ -110,10 +110,6 @@ main {
   padding: 30px 50px;
   z-index: 10; }
 
-.main__block {
-  height: auto;
-  position: relative; }
-
 .title {
   display: block;
   font-size: 40px;

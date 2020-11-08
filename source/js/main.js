@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const d = document,
-    u_index = '.u_index',
-    m_index = '#m_index'
-    delay = '0.5s',
+    u_index = '#index',
+    searcher = '.search__box',
     codeBox = '.code__box',
     codeBoxItem = '.code__box__item',
     themesId = '#themes',
@@ -45,13 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         link: preLink + 'content.html'
       }
     ]
-
-  function addDelay(s) {
-    //checks if it's the index page (if not it gives an error =/)
-    if(typeof delay == "string" && d.querySelector(m_index)) {
-      d.querySelector('.text').setAttribute('data-wow-delay', s)
-    }
-  }
 
   function linkReplace(vars) {
     vars.forEach(link => d.querySelector(link.value).setAttribute('href', link.link))
@@ -129,7 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  addDelay(delay) //make a delay of the animation
+  function hideSearcher(index, searcher) {
+    if (!d.querySelector(index)) {
+      d.querySelector(searcher).style.display = 'none'
+    }
+  }
 
   linkReplace(links) //add links for the items of the menu list
   
@@ -139,4 +135,5 @@ document.addEventListener('DOMContentLoaded', () => {
   
   submenu(submenuTriggers) //get subitems for a menu item when it's hovering
 
+  hideSearcher(u_index, searcher) // Hide search line
 })

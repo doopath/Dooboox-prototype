@@ -1,18 +1,7 @@
 'use strict'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const d = document,
-        requests = {
-          name: 'elements',
-          searchLine: '#search-line',
-          elements: [
-            '.tp-title',
-            '.tp-subtitle',
-            '.tp-text',
-            '.tp-quote'
-          ]
-         }
-
+  // See all configuration properties in config.(min.)js
   class Searcher {
     constructor(options) {
       this._elements = options.elements
@@ -52,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (req != '' ) { // Only if search request isn't equal 0
         this._ge.qsa(elements).forEach( e => {
           const innerPosition = e.innerText.toLowerCase().search(req)
+
           if (innerPosition != -1) { // If that boy has found an expression on a page
             let reqString = e.innerText
 

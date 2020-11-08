@@ -1,16 +1,6 @@
-"use strict"
+'use strict'
 document.addEventListener('DOMContentLoaded', () => {
-  const codeBoxes = [ // Settings of code-boxes' toggle functions
-    {
-      name: 'codeBox_1',
-      id: '#code-box_1',
-      button: '.button',
-      resultBox: '.code-box_result'
-      // Change these ones if you change html names of classes or add elements
-      // Create a new object for each code-box
-    },
-  ]
-
+  // See all configuration properties in config.(min.)js
   class CodeBox {
     constructor(options) {
       this._name = options.name

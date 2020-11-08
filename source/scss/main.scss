@@ -9,6 +9,10 @@
   src: url('../fonts/CapsFont.woff');
 }
 
+// Variables
+$bg: #282828;
+
+// Style zeroing
 * {
   padding: 0;
   margin: 0;
@@ -16,7 +20,7 @@
   box-sizing: border-box;
   box-shadow: 0;
   font-family: Liberation;
-  color: #282828;
+  color: $bg;
 }
 
 a {
@@ -34,7 +38,7 @@ body {
 
 /* Header styles */
 header {
-  background: #000;
+  background: $bg;
   width: 100%;
   height: 80px;
 }
@@ -47,7 +51,7 @@ header {
 
 .logotype {
   display: inline-box;
-  color: #fff;
+  color: #ddd;
   font-size: 40px;
   font-weight: 800;
   position: absolute;
@@ -57,12 +61,58 @@ header {
 
 .header__title {
   font-size: 30px;
-  color: #fff;
+  color: #ddd;
   line-height: 80px;
   font-weight: 800;
   position: absolute;
   right: 0;
   top: 0;
+}
+
+._hidden {
+  display: none !important;
+}
+
+// Another one line of code
+
+.search__box {
+  background: #ddd;
+  display: inline-block;
+  height: 40px;
+  width: 400px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  top: 20px;
+  left: 150px;
+  background: $bg;
+  border: 2px solid #ddd;
+}
+
+.search__box::before {
+  position: absolute;
+  color: #ddd;
+  dipsplay: inline-block;
+  background: $bg;
+  cursor: pointer;
+  top: 2px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.search {
+  position: absolute;
+  background: $bg;
+  padding-left: 55px;
+  padding-right: 8px;
+  font-size: 20px;
+  right: 40px;
+  color: #ddd;
+  height: 100%;
+  width: 100%;
 }
 
 /* Main styles */
@@ -100,7 +150,7 @@ main {
 .separator {
   width: 100%;
   height: 4px;
-  background: #282828;
+  background: $bg;
   margin: 60px auto;
   border-radius: 10px;
 }
@@ -140,7 +190,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #282828;
+  background: $bg;
   z-index: 10;
   opacity: 0.90;
   display: grid;
@@ -294,7 +344,7 @@ main {
 .menu-sublist__link {
   width: 100%;
   height: 100%;
-  color: #282828;
+  color: $bg;
 }
 
 //submenu end
@@ -412,7 +462,7 @@ main {
   display: inline-block;
   width: 20px;
   height: 20px;
-  color: #282828;
+  color: $bg;
   position: absolute;
   top: 1px; left: 105%;
   transition: 0.2s linear;
@@ -432,7 +482,7 @@ main {
 
 .subtitle {
   display: block;
-  color: #282828;
+  color: $bg;
   font-size: 20px;
 }
 
@@ -507,6 +557,28 @@ main {
   }
 }
 
+@media(max-width: 1420px) {
+  .search__box {
+    width: 300px;
+  }
+}
+
+@media(max-width: 1240px) {
+  .search__box {
+    width: 200px;
+    height: 30px;
+    top: 25px;
+  }
+  .search__box::before {
+    width: 30px;
+    height: 30px;
+    top: -2px;
+  }
+  .search {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 1181px) {
   .menu__item {
     font-size: 15px;
@@ -531,13 +603,16 @@ main {
   header {
     height: 60px;
   }
+  .search__box {
+    top: 15px;
+  }
   .logotype {
     font-size: 24px;
-    top: 20px;
+    top: 17.5px;
   }
   .header__title {
     font-size: 18px;
-    top: -8px;
+    top: -10px;
   }
   .title {
     font-size: 25px;
@@ -547,6 +622,12 @@ main {
   }
   .hidden-separator {
     margin: 30px auto;
+  }
+}
+
+@media(max-width: 900px) {
+  .search__box {
+    left: 80px;
   }
 }
 
@@ -562,6 +643,59 @@ main {
     height: 35px;
     line-height: 35px;
     font-size: 12px;
+  }
+}
+
+@media(max-width: 790px) {
+  #clicker {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    z-index: 19;
+    cursor: pointer;
+  }
+  .clicker_active {
+    right: 2px;
+    top: 2px;
+  }
+  .search__box::before {
+    border: 2px solid #ddd;
+    z-index: 18;
+    top: 0;
+    border-radius: 50%;
+    cursor: default;
+  }
+  .search__box {
+    transform: translate(-90%, 0);
+    z-index: 15;
+    border: 0;
+    top: 12.5px;
+    overflow: visible;
+    transition: 0.3s linear;
+  }
+  .search__box_active {
+    transform: translate(0, 0);
+    border: 2px solid #ddd;
+    overflow: hidden;
+    .search {
+      color: #bg;
+    }
+  }
+  .search__box_active::before {
+    border: 0;
+    top: -2px;
+    border-radius: 50%;
+    cursor: default;
+  }
+  .logotype {
+    z-index: 16;
+  }
+  .header__title {
+    transition: 0.2s linear;
   }
 }
 
@@ -620,6 +754,30 @@ main {
   .logotype {
     font-size: 20px;
     top: 15px;
+  }
+  .search__box {
+    top: 12px;
+    height: 25px;
+  }
+  .search__box::before {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+    padding: 1px;
+    top: -3px;
+  }
+  .search {
+    padding-right: 10px;
+    right: 25px;
+    left: -40px;
+    width: 110%;
+  }
+  #clicker {
+    width: 25px;
+    height: 25px;
+    top: -2px;
+    right: -1px;
   }
   .header__title {
     font-size: 14px;
@@ -687,7 +845,19 @@ main {
   }
 }
 
+@media(max-width: 480px) {
+  .search__box {
+    transform: translate(-95%, 0)
+  }
+}
+
 @media(max-width: 450px) {
+  .search__box {
+    display: none;
+  }
+  .logotype {
+    z-index: 2;
+  }
   .menu {
     display: none;
   }

@@ -1,0 +1,10 @@
+#+TITLE: Todo
+#+AUTHOR: doopath
+
+* TODO
+** Make correct event for searcher. -> Done
+** Make a responsive layout for search button. -> Done
+** Animation, other, other... -> Processing
+** Write tests for any scripts
+** Make logs and anything like this for this script
+** Add a code checker for html, css and another ones in emacs

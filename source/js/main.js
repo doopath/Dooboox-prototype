@@ -138,4 +138,5 @@ document.addEventListener('DOMContentLoaded', () => {
   colorCapsNamesLetters(authorName, 'caps') //adds class "caps" for caps-letters in any words
   
   submenu(submenuTriggers) //get subitems for a menu item when it's hovering
+
 })

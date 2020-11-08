@@ -1,3 +1,7 @@
+.tp-block {
+  height: auto;
+  position: relative; }
+
 .tp-example__box {
   display: none;
   width: 100%; }

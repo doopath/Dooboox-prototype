@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Change these ones if you change html names of classes or add elements
       // Create a new object for each code-box
     },
-    {
-      name: 'codeBox_2',
-      id: '#code-box_2',
-      button: '.button',
-      resultBox: '.code-box_result'
-    }
   ]
 
   class CodeBox {
@@ -51,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleVisible() { // Show/Hide code box and anothers when button was clicked
       try {
         if (this._ge.qs(this._id) === null) {
+          this._logs[1].lineNumber = new Error().lineNumber
           throw this._logs[1]
         }
         this._ge.qs(this._id + ' ' + this._button).addEventListener('click', e => {
@@ -154,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
           this._test(this._setStringNumbers(codeBox + ' ' + this._result, true))
         } else { // Then you get this one
           return false
+          this._logs[0].lineNumber = new Error().lineNumber
           throw this._logs[0]
         }
       } catch (e) {
@@ -207,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  codeBoxes.forEach( b => {  // Make a new object of class CodeBox
+  codeBoxes.forEach( b => {  // Get any code-boxes and apply all for these ones.
     const box = new CodeBox(b)
     box.toggleVisible()
   })

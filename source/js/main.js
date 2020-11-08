@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function hideSearcher(index, searcher) {
-    if (!d.querySelector(index)) {
+    if (d.querySelector(index) == null) {
       d.querySelector(searcher).style.display = 'none'
     }
   }

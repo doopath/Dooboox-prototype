@@ -844,6 +844,9 @@ main {
   .search__box {
     transform: translate(-95%, 0)
   }
+  .search__box_active {
+    transform: translate(0, 0)
+  }
 }
 
 @media(max-width: 450px) {

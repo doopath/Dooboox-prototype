@@ -61,6 +61,7 @@
   color: #ddd;
   font-size: 20px;
   text-align: center;
+  user-select: none;
   display: inline-block;
   width: 30px;
   height: 100%;

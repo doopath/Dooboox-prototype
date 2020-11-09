@@ -47,6 +47,11 @@ header {
   background: $bg;
   width: 100%;
   height: 80px;
+  overflow: hidden;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
 }
 
 mark {

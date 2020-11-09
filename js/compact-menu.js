@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
           this._setLinks(this._links)
 
           this._show(curtain, this._d.body)
-          this._onHide(curtain, this._d.body)
-          this._onHide(cross, this._d.body)
+          this._onHide(curtain, curtain, this._d.body)
+          this._onHide(cross, curtain, this._d.body)
         }
       }
     }
 
-    _onHide(element, body) { // Hide elements
-      element.onclick = () => {
-        this._hide(element, body)
+    _onHide(click, curtain, body) { // Hide elements
+      click.onclick = () => {
+        this._hide(curtain, body)
       }
     }
 

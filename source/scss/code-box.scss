@@ -1,5 +1,13 @@
 //Code-box styles
 
+// Variables
+$bg: #282828;
+$orange: #ff5722;
+$red: #d32f2f;
+$red-code: #f04236;
+$purple: #8e24aa;
+$light: #ddd;
+
 .button {
   width: 50px;
   height: 50px;
@@ -36,7 +44,7 @@
   width: 80%;
   height: auto;
   background-color: #282828;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   margin: 20px 0;
   display: block;
@@ -81,12 +89,80 @@
 }
 
 .code {
-  color: #f04236;
   font-size: 20px;
   padding-left: 42px;
   line-height: 50px;
   margin-top: -50px;
   play-during: 10px;
+}
+
+// Syntax-highlighting styles
+// Code-styles
+.code-pairs_orange {
+  font-weight: 800;
+  color: $orange;
+}
+
+.code-bold {
+  color: #ddd;
+  font-weight: 800;
+}
+
+// Code-colors
+.code-white {
+  color: #ddd !important;
+}
+
+.code-red {
+  color: $red;
+}
+
+.code-orange {
+  color: $orange !important;
+}
+
+.code-yellow {
+  color: #FABD2F !important;
+}
+
+.code-green {
+  color: #689D6A;
+}
+
+.code-light_green {
+  color: #8EC07C;
+}
+
+.code-oceanic {
+  color: #83A598;
+}
+
+.code-blue {
+  color: #458588;
+}
+
+.code-light_purple {
+  color: #B16286;
+}
+
+.code-purple {
+  color: #8F3F71;
+}
+
+.code-pink {
+  color: #D3869B;
+}
+
+.code-black {
+  color: #282828;
+}
+
+.code-gray {
+  color: #747474;
+}
+
+.code-result {
+  color: #ddd;
 }
 
 .code-box-scrolling {
@@ -107,14 +183,6 @@
 .code-box-scrolling::-webkit-scrollbar-thumb {
   background: #f04236 !important;
   border-radius: 0px !important;
-}
-
-.code-comment {
-  color: #747474;
-}
-
-.code-result {
-  color: #4a76a8;
 }
 
 //gears
@@ -186,9 +254,6 @@
 }
 
 @media(max-width: 769px) {
-  .code-box {
-    padding: 15px;
-  }
   .code {
     font-size: 10px;
     margin-left: 0px;

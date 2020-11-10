@@ -1,8 +1,13 @@
 'use strict'
 document.addEventListener('DOMContentLoaded', () => {
   // See all configuration properties in config.(min.)js
-  class CodeBox {
+  class CodeBox extends Logger {
     constructor(options) {
+      super() //
+      this._logs = options.logs // Logs list for Logger
+      this._rules = options.rules // Rules list for Highlighter
+      this._styles = options.styles
+
       this._name = options.name
       this._id = options.id
       this._button = options.button
@@ -15,28 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
         qsa : el => { return this.d.querySelectorAll(el) }
       }
       this._logs = [ //Add error logs for the function _test
-        {
-          code: '001',
-          name: '<Wrong property error>',
-          message: 'You cannot use this method untill you set this property of the class!',
-          howToFix: 'Just set this propery right and try again',
-          lineNumber: 157
-        },
-        {
-          code: '002',
-          name: '<Block id is null>',
-          message: 'Function cannot get the element. It returns null.',
-          howToFix: "Perhaps, it's normal. Just there is no such code block. It locate on another page. Also this may be an error of creating list of the code-blocks.",
-          lineNumber: 54
-        }
       ]
     }
 
     toggleVisible() { // Show/Hide code box and anothers when button was clicked
       try {
         if (this._ge.qs(this._id) === null) {
-          this._logs[1].lineNumber = new Error().lineNumber
-          throw this._logs[1]
+          let line = new Error().lineNumber - 1
+          this._throw(logs[2], line)
         }
         this._ge.qs(this._id + ' ' + this._button).addEventListener('click', e => {
 
@@ -74,8 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         this._setStringNumbers(this._codeBox)
         this._showResult(this._exampleBox)
         this._addScrollBar(this._codeBox, 900, '900px')
+        this._syntaxHighlighting(this._codeBox, this._styles)
+
       } catch (e) {
-        return this._logError(e)
+        return this._log(e)
       }
     }
 
@@ -96,8 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
           fields.forEach( (f, i) => f.innerText = i + 1 )
         }
       } catch (e) {
-        return this._logError(e)
+        return this._log(e)
       }
+    }
+
+    _syntaxHighlighting(codeBox) { // Highlight syntax of code example
+      const lines = this._ge.qsa(codeBox + ' .code-box__item .code')
+      const highlighter = new Highlighter(this._rules)
+
+      lines.forEach( line => {
+        if (!line.classList.contains('code-result')) {
+          line.innerHTML = highlighter.highlight(
+            line.innerText, this._rules, this._styles)
+        }
+      })
     }
 
     _addScrollBar(codeBox, screenWidth, lineWidth) {
@@ -127,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
       } catch (e) {
-        return this._logError(e)
+        return this._log(e)
       }
     }
 
@@ -136,59 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (this._result != undefined) { // You cannot call it if you haven't a result block
           let box = this._ge.qs(codeBox + ' ' + this._result)
 
-          this._test(this._setStringNumbers(codeBox + ' ' + this._result, true))
+          this._setStringNumbers(codeBox + ' ' + this._result, true)
         } else { // Then you get this one
           return false
-          this._logs[0].lineNumber = new Error().lineNumber
-          throw this._logs[0]
+          let line = new Error().lineNumber - 1
+          this._throw(logs[3], line)
         }
       } catch (e) {
-        this._logError(e)
-      }
-    }
-
-    _logError(error) { // The error handler
-      const log = {
-        name: error.name,
-        error: error.message,
-        line: error.lineNumber,
-        howToFix: error.howToFix,
-        code: error.code
-      }
-      this._test(log) // Check and show an error
-    }
-
-    _showError(e) { // Writes a error to the browser console
-      console.error(e.code, '\n Name: ', e.name, '\n Message: ', e.message, '\n line: ', e.line, '\n How to fix: ', e.howToFix)
-    }
-
-    _test(note) { // Gets a note (log from the _logError function)
-      if (typeof note === 'object') {
-        let error,
-            ic = 0 // Iteration count
-
-        this._logs.forEach( l => { // Checks if there is such log
-          while (error === undefined) {
-            if (ic > this._logs.length) { // If it's not a custom error
-              error = note
-
-              if (error.code == undefined) {
-                error.code = '000'
-                error.message = note.error
-                error.howToFix = 'I dunno.'
-              } else {
-                error.message = error.error
-              }
-
-            } else if (l.code === note.error.substr(0, 3)) {
-              error = l
-            }
-
-            ic++ // This is ... You know
-          }
-        })
-
-        this._showError(error) // And finally show it
+        return this._log(e)
       }
     }
   }

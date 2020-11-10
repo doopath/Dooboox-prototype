@@ -2,10 +2,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // See all configuration properties in config.(min.)js
-  class Searcher {
+  class Searcher extends Logger {
     constructor(options) {
+      super() // Something
       this._elements = options.elements
       this._searchLine = options.searchLine // Require
+
+      this._logs = options.logs // Error / Warns
 
       this.name = options.name // Why not
 
@@ -14,39 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
       this._ge = {
         qs: el => { return this._d.querySelector(el) },
         qsa: el => { return this._d.querySelectorAll(el) }
-      },
-      this._logs = [
-        {
-          code: '001',
-          name: 'There is not search line!',
-          message: 'Check the class/id name is right or add the search line on the page.',
-          lineNumber: -1,
-          fileName: 'js/main.js',
-          custom: true,
-          method: console.error,
-        },
-        {
-          code: '002',
-          name: 'You did not give any elements!',
-          message: 'Check the elements/classes are right or add these to the config.js',
-          lineNumber: -1,
-          fileName: 'js/main.js',
-          custom: true,
-          method: console.error,
-        }
-      ]
+      }
     }
 
     search() {
       try {
         if (this._ge.qs(this._searchLine) == null) { // You'll get error if you haven't
-          let lineNumber = new Error().lineNumber + 1
-          this._logs[0].lineNumber = lineNumber
-          throw this._logs[0] // these ones
+          let line = new Error().lineNumber
+          this._throw(this._logs[0], line) // throw an error
         } else if (this._elements == undefined) {
-          let lineNumber = new Error().lineNumber + 1
-          this._logs[1].lineNumber = lineNumber
-          throw this._logs[1] // these ones
+          let line = new Error().lineNumber
+          this._throw(this._logs[1], line) // throw an error
         }
 
         this._responsive(this._searchLine)
@@ -193,36 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (e) {
         this._log(e)
       }
-    }
-
-    // Tests and logs
-
-    _log(e) { // Make a log and send to logger
-      let log = {
-        code: e.code,
-        name: e.name,
-        message: e.message,
-        lineNumber: e.lineNumber,
-        fileName: e.fileName,
-        custom: e.custom,
-        method: e.method
-      }
-
-      this._logToConsole(log) // Sending
-    }
-
-    _logToConsole(log) {
-      if (log.custom === true) {
-        this._showLog(log) // You haven't much time, do it!
-      } else {
-        log.code = '000' // Reset code
-        log.method = console.error // Reset method
-        this._showLog(log) // Show log
-      }
-    }
-
-    _showLog(log) { // Write log to the console
-      log.method(`Code: ` + log.code + `\n Name: ` + log.name + `\n Message: ` + log.message + `\n Line: ` + log.lineNumber + `\n File: ` + log.fileName)
     }
   }
 

@@ -17,6 +17,7 @@ class Colorizer { // Get string as colorized html tag
   static pink(el) { return `<span class="code-pink">${el}</span>` }
   static black(el) { return `<span class="code-black">${el}</span>` }
   static gray(el) { return `<span class="code-gray">${el}</span>` }
+  static pastelGreen(el) { return `<span class="code-green_pastel">${el}</span>` }
 
   // Styles
   static pairsOrange(el) { return `<span class="code-pairs_orange">${el}</span>` }

@@ -53,7 +53,7 @@
   margin-left: 5px; }
 
 .code-box__item {
-  height: 50px;
+  height: 40px;
   width: 100%;
   border-bottom: 2px solid #2c2c2e; }
 
@@ -63,16 +63,16 @@
   text-align: center;
   user-select: none;
   display: inline-block;
-  width: 30px;
+  width: 35px;
   height: 100%;
   border-right: 2px solid #ddd;
   padding-right: 10px;
-  line-height: 50px; }
+  line-height: 40px; }
 
 .code {
   font-size: 20px;
-  padding-left: 42px;
-  line-height: 50px;
+  padding-left: 47px;
+  line-height: 64px;
   margin-top: -50px;
   play-during: 10px; }
 
@@ -98,6 +98,9 @@
 
 .code-green {
   color: #689D6A; }
+
+.code-green_pastel {
+  color: #98971a; }
 
 .code-light_green {
   color: #8EC07C; }
@@ -125,6 +128,12 @@
 
 .code-result {
   color: #ddd; }
+
+.tab {
+  margin-left: 10px; }
+
+.double-tab {
+  margin-left: 20px; }
 
 .code-box-scrolling {
   border-bottom-left-radius: 0;
@@ -178,8 +187,11 @@
     height: 30px; }
   .code,
   .string__number {
-    font-size: 15px;
+    font-size: 15px; }
+  .code {
     line-height: 33px; }
+  .string__number {
+    line-height: 30px; }
   .code {
     margin-top: -30px; }
   .gears__block {
@@ -192,12 +204,22 @@
 
 @media (max-width: 991px) {
   .code {
-    font-size: 12px; } }
+    font-size: 12px;
+    line-height: 38px; }
+  .code-box__item {
+    height: 26px; }
+  .string__number {
+    line-height: 25px; } }
 
 @media (max-width: 769px) {
   .code {
     font-size: 10px;
     margin-left: 0px; }
+  .code-box__item {
+    height: 24px; }
+  .string__number {
+    line-height: 23px;
+    font-size: 12px; }
   .gears__block {
     height: 60px;
     grid-template: repeat(2, 1fr)/30px 60px 30px 60px 30px 60px;
@@ -216,8 +238,6 @@
     font-size: 10px;
     margin-top: -26px;
     padding-left: 27px; }
-  .code-result {
-    padding-left: 47px; }
   .string__number {
     font-size: 12px;
     margin-top: -10px;
@@ -228,7 +248,7 @@
     content: '';
     position: absolute;
     right: 0;
-    bottom: -8px;
+    bottom: -3.5px;
     height: 130%;
     width: 2px;
     background: #ddd; } }

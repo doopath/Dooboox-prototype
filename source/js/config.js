@@ -52,12 +52,14 @@ var highlightingStyles = { // Colorizer styles settings for Highlighter
   default: Colorizer.white,
   keyword: Colorizer.green,
   symbol: Colorizer.blue,
-  number: Colorizer.green,
+  number: Colorizer.pastelGreen,
   comment: Colorizer.gray,
+  arrow: Colorizer.red,
+  link: Colorizer.oceanic,
   function: Colorizer.purple,
+  par: Colorizer.pairsOrange,
   'string.start': Colorizer.pairsOrange,
   'string.end': Colorizer.pairsOrange,
-  par: Colorizer.pairsOrange,
   'string.content': Colorizer.yellow
 },
   rules = { // Highlighter rules
@@ -84,7 +86,7 @@ var highlightingStyles = { // Colorizer styles settings for Highlighter
       },
       {
         name: 'number',
-        exp: /(\+-)?\d+(\.\d+)?/
+        exp: /(\+-)?\d+(\.\d+)?|NaN/
       },
       {
         name: 'par.open',
@@ -99,13 +101,22 @@ var highlightingStyles = { // Colorizer styles settings for Highlighter
         exp: /(await|break|document|body|width|height|style|async|do|catch|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|false|finally|for|function|if|implements|import|in|instanceof|interface|let|new|null|package|private|protected|public|return|super|switch|static|this|throw|try|True|typeof|var|void|while|with|yield)\b/i // SO BIG
       },
       {
+        name: 'arrow',
+        exp: /[=-]\p{S}/ui
+      },
+      {
+        name: 'link',
+        exp: /http(s)?:\/\/[a-zA-Zа-яА-Я0-9%&=#.\/\\!.]+/
+      },
+      {
         name: 'symbol',
-        exp: /\|\||&&|[\$!%@&\*+;,.\\|\\{\\}/=-]/ // How is it working i dunno lol
+        // How is it working i dunno lol
+        exp: /\|\||&&|[\$!%@&\*+:;,.\\|\\{\\}/=-]|\p{S}/
       },
       {
         name: 'word',
         exp: /[a-zA-Z_\$]+[a-zA-Z0-9_\$]/
-      }
+      },
     ],
     string_next: [
       {
